@@ -5,7 +5,7 @@ The USGS is interested in building a new set of tools that will allow them to vi
 
 # Requirements
 The requirements for this activity are broken into two parts:
-1. Part 1: Create the Earthquake Visualization.
+1. Part 1: Create the Earthquake Visualization.  <br>
 2. Part 2: Gather and Plot More Data (Optional with no extra points earning)
 
 # Part 1: Create the Earthquake Visualization
@@ -22,10 +22,10 @@ Your first task is to visualize an earthquake dataset by completing the followin
 
 2. Import and visualize the data by doing the following:
 Using Leaflet, create a map that plots all the earthquakes from your dataset based on their longitude and latitude. <br>
-   a. The data markers should reflect the magnitude of the earthquake by their size and the depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger, and earthquakes with greater depth should appear darker in color.
-   b. Hint: The depth of the earth can be found as the third coordinate for each earthquake.
-   c. Include popups that provide additional information about the earthquake when its associated marker is clicked.
-   d. Create a legend that will provide context for your map data.
+   a. The data markers should reflect the magnitude of the earthquake by their size and the depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger, and earthquakes with greater depth should appear darker in color. <br>
+   b. Hint: The depth of the earth can be found as the third coordinate for each earthquake. <br>
+   c. Include popups that provide additional information about the earthquake when its associated marker is clicked. <br>
+   d. Create a legend that will provide context for your map data. <br>
    e. The visualization is as below:
    
    ![Untitled](https://github.com/Pooja14n/leaflet-challenge/assets/144713762/25177ab7-f65c-4265-8745-6b11a4c0f847)
