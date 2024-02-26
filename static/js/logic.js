@@ -16,7 +16,7 @@ function createFeatures(earthquakeData) {
   
     function createMarker(feature, latlng){
         let markers = {
-         radius:feature.properties.mag*3,
+         radius:feature.properties.mag*4,
          fillColor: chooseColor(feature.geometry.coordinates[2]),
          color: "black",
          weight: 0.5,
@@ -36,11 +36,11 @@ function createFeatures(earthquakeData) {
  }
  
  function chooseColor(depth){
-    if (depth < 10) return "yellowgreen";
-    else if (depth < 30) return "khaki";
-    else if (depth < 50) return "yellow";
-    else if (depth < 70) return "darkorange";
-    else if (depth < 90) return "lightsalmon";
+    if (depth < 10) return "lime";
+    else if (depth < 30) return "#D4E157";
+    else if (depth < 50) return "#FFCA28";
+    else if (depth < 70) return "#FF9800";
+    else if (depth < 90) return "#FF7043";
     else return "red";
 }
 
