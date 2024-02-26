@@ -11,8 +11,8 @@ d3.json(queryUrl).then(function (data) {
 function createFeatures(earthquakeData) {
 
     function onOurFeature(feature, layer)  {
-        layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`)
-    
+        // layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`)
+        layer.bindPopup(`<h3>Location: ${feature.properties.place}</h3><hr><p>Date: ${new Date(feature.properties.time)}</p><p>Magnitude: ${feature.properties.mag}</p><p>Depth: ${feature.geometry.coordinates[2]}</p>`);
     }
   
     function createMarker(feature, latlng){
@@ -37,12 +37,79 @@ function createFeatures(earthquakeData) {
  }
  
  function chooseColor(depth){
-    if (depth >= 1 && depth <= 2.5) return "yellow";
-    else if (depth >= 2.5 && depth <= 5.0) return "orange";
-    else if (depth >= 5.0 && depth <= 10.0) return "green";
-    else if (depth >= 10.0 && depth <= 20.0) return "red";
-    else return "pink"
+    if (depth < 10) return "yellowgreen";
+    else if (depth < 30) return "khaki";
+    else if (depth < 50) return "yellow";
+    else if (depth < 70) return "darkorange";
+    else if (depth < 90) return "lightsalmon";
+    else return "red";
 }
+
+
+// let legend = L.control({position: 'bottomright'});
+
+// legend.onAdd = function() {
+//     var div = L.DomUtil.create('div', 'info legend');
+//     var grades = [1.0, 2.5, 4.0, 5.5, 8.0];
+//     var labels = [];
+//     var legendInfo = "<h4>Magnitude</h4>";
+
+//     div.innerHTML = legendInfo
+
+//     // go through each magnitude item to label and color the legend
+//     // push to labels array as list item
+//     for (var i = 0; i < grades.length; i++) {
+//           labels.push('<ul style="background-color:' + chooseColor(grades[i] + 1) + '"> <span>' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '' : '+') + '</span></ul>');
+//         }
+
+//       // add each label list item to the div under the <ul> tag
+//       div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    
+//     return div;
+//   };
+
+
+// let legend = L.control({position: 'bottomright'});
+
+// legend.onAdd = function (map) {
+//     let div = L.DomUtil.create('div', 'info legend'),
+//         grades = [1.0, 2.5, 4.0, 5.5, 8.0],
+//         labels = [];
+
+//     // loop through density intervals
+//     for (let i = 0; i < grades.length; i++) {
+//         div.innerHTML +=
+//             '<i style="background:' + chooseColor(grades[i] + 1) + '"></i> ' +
+//             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+//     }
+//     return div;
+// };
+
+
+let legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function() {
+    var div = L.DomUtil.create('div', 'info legend');
+    var grades = [1.0, 2.5, 4.0, 5.5, 8.0];
+    var labels = [];
+    var legendInfo = "<h4>Magnitude</h4>";
+
+    div.innerHTML = legendInfo
+
+    // go through each magnitude item to label and color the legend
+    // push to labels array as list item
+    for (var i = 0; i < grades.length; i++) {
+          labels.push('<ul style="background-color:' + chooseColor(grades[i] + 1) + '"> <span>' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '' : '+') + '</span></ul>');
+        }
+
+      // add each label list item to the div under the <ul> tag
+      div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    
+    return div;
+  };
+
+    legend.addTo(myMap);
+        
 
   function createMap(earthquakes) {
     //BASE MAPS
@@ -74,7 +141,8 @@ function createFeatures(earthquakeData) {
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
-
+  
   
   
   }
+
