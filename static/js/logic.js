@@ -52,14 +52,7 @@ legend.onAdd = function() {
     let grades = [-10, 10, 30, 50, 70, 90];
     let labels = [];
     let legendInfo = "<h4></h4>";
-
-    // div.innerHTML = legendInfo
     
-    // for (let i = 0; i < grades.length; i++) {
-    //       labels.push('<ul style="background-color:' + chooseColor(grades[i] + 1) + '"> <span>' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '' : '+') + '</span></ul>');
-    //     }
-      
-    //   div.innerHTML += "<ul>" + labels.join("") + "</ul>";
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
             '<i style="background:' + chooseColor(grades[i] + 1) + '"></i> ' +
@@ -68,9 +61,7 @@ legend.onAdd = function() {
 
     return div;
   };
-
-    
-        
+           
 
   function createMap(earthquakes) {
     //BASE MAPS
@@ -103,7 +94,6 @@ legend.onAdd = function() {
     collapsed: false
   }).addTo(myMap);
   legend.addTo(myMap);
-  
-  
+    
   }
 
