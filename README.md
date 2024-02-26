@@ -16,3 +16,19 @@ Your first task is to visualize an earthquake dataset by completing the followin
 
 ![3-Data](https://github.com/Pooja14n/leaflet-challenge/assets/144713762/0edcf48f-2514-4001-ade0-ae2d0b14bb92)
 
+   b. When we click a dataset (such as "All Earthquakes from the Past 7 Days"), we will be given a JSON representation of that data. Use the URL of this JSON to pull in the data for the visualization. The following image is a sampling of earthquake data in JSON format:
+
+   ![4-JSON](https://github.com/Pooja14n/leaflet-challenge/assets/144713762/42c3a7a4-d623-431f-ac8c-ec33f5914d7f)
+
+2. Import and visualize the data by doing the following:
+Using Leaflet, create a map that plots all the earthquakes from your dataset based on their longitude and latitude.
+   a. Your data markers should reflect the magnitude of the earthquake by their size and the depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger, and earthquakes with greater depth should appear darker in color.
+   b. Hint: The depth of the earth can be found as the third coordinate for each earthquake.
+   c. Include popups that provide additional information about the earthquake when its associated marker is clicked.
+   d. Create a legend that will provide context for your map data.
+   e. The visualization is as below:
+   
+   ![Untitled](https://github.com/Pooja14n/leaflet-challenge/assets/144713762/25177ab7-f65c-4265-8745-6b11a4c0f847)
+
+
+   
